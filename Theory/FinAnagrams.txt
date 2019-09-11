@@ -1,0 +1,52 @@
+Example: Given a smaller strings and a bigger string b, design an algorithm to find all permutations of the shorter string within the longer one. Print the location of each permutation. 
+s: abbc
+b: cbabadcbbabbcbabaabccbabc 
+
+BruteForce
+def substr_problem(s, b):
+	permutes = permute(s)
+	slen = lenght(s)
+	blen = lenght(b)
+	for i in range(blen-slen):
+		if b[i:i+slen] in permutes:
+			print i
+def permute(s):
+	permutations("", s)
+def permutations(base, s):
+	if lenght(s) == 0:
+		return base
+	to_return = []
+	for i in range(lenght(s)):
+		prev = s[0:i]+s[i+1:]
+		to_return.extend(permutations(base+s[i], prev)
+	return to_rerurn
+
+Optimization b*s*log(s)
+Sort s and then sort the substrings of lenth s
+def substr_problem(s, b):
+	s = sort(s)
+	slen = lenght(s)
+	blen = lenght(b)
+	for i in range(blen-slen):
+		if sort(b[i:i+slen]) == s:
+			print i
+
+Optimization b
+
+max_chars=255
+
+def substr_problem(s, b):
+	slen=lenght(s)
+	blen=lenght(b)
+	s_arr=[0]*max_chars
+	b_arr=[0]*max_chars
+	for chari in s:
+		s_arr[ord(chari)]+=1
+	for i in range(slen-1):
+		b_arr[ord(b[i])]+=1
+	for i in range(slen, blen):
+		arrpos= i-slen
+		b_arr[i]+=1
+		if s_arr == b_arr:
+			print(arrpos)
+		b_arr[arrpos]-=1		
