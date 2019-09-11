@@ -1,0 +1,39 @@
+Problem and code
+A ransom note can be formed by cutting words out of a magazine to form a new sentence. How would you figure out if a ransom note (represented as a string) can be formed from a given magazine (string)? 
+Example
+Note ->Some ransom note
+Magazine->The magazine contains some words that some of them are repeated notes, others are random or ransom, nevertheless, this is funny
+Supposing no comas
+Brute Force n*m*k
+def ransom(note, magazine):
+	splitted_note = note.split(“ ”)
+	splitted_magazine = magazine.split(“ ”)
+	for word in splitted_note:
+		found =false
+		for maga in splitted_magazine:
+			If word == maga:
+				splitted_magazine.remove(maga)
+found= true
+				Break
+		If not found :
+			return false
+	Return true
+Optimize k*(n+m)
+def ransom(note, magazine):
+	splitted_note = note.split(“ ”)
+	splitted_mag = magazine.split(“ ”)
+count_mag =dict.fromkeys(splitted_mag, 0)
+count_note =dict.fromkeys(splitted_note , 0)
+	for maga in splitted_mag:
+		count_mag[maga]+=1
+	
+	for word in splitted_note :
+		If count_mag[word]>0:
+			count_mag[word]-=1
+		Else:
+			Return false
+	Return true
+
+	
+	
+	

@@ -1,0 +1,14 @@
+Example: Numbers are randomly generated and stored into an (expanding) array. How would you keep track of the median? 
+Example 
+2 6 4 9 10 11
+2 6
+import heapq
+class storage:
+	def __init__(self):
+self.max_store=list()
+self.min_store=list()
+def add(num):
+if   
+	heapq.headpush(self.num_store,num)
+def median():
+	return self.num_store[0]
