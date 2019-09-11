@@ -1,0 +1,34 @@
+Permutes
+Example: Design an algorithm to print all permutations of a string. For simplicity, assume all characters are unique. 
+Example
+Asd
+Ads
+Sad
+Sda
+Das
+Dsa
+Bruteforce
+def perm(to_permute):
+  perumtes("", to_permute)
+def perumtes(base,extra):
+ if extra == "":
+   print(base)
+   return None
+ for ith in range(len(extra)):
+   perumtes(base+extra[ith], extra[0:ith]+extra[ith+1:])
+Insertion
+def perm(to_permute):
+ current_perms=[to_permute[0]]
+ for ith in range(1,len(to_permute)):
+   new_perms =list()
+   for cur_perm in current_perms:
+     new_perms.extend(permute(cur_perm, to_permute[ith])) 
+   current_perms = new_perms[:]
+ return current_perms
+def permute(base, ch):
+ base_perms= list()
+ for ith in range(len(base)+1):
+   base_perms.append(base[0:ith]+ch+base[ith:])
+ return base_perms
+
+
