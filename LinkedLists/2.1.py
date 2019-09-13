@@ -26,7 +26,7 @@ class LinkedList:
    while head.next != None:
      print(head.value, end = '')
      head = head.next
-   print("")
+    print(head.value)
   
  
 def remove_dups(llist):#this is O(n*n)
@@ -43,8 +43,8 @@ l.add(2)
 l.add(5)
 l.add(3)
 l.add(7)
-l.print() # 2321253
+l.print() # 23212537
 remove_dups(l)
-l.print() # 2315
+l.print() # 23157
 # i think im solving the problem wihtout any temporary buffer
 

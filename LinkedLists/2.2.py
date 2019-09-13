@@ -51,4 +51,3 @@ l.print() # 23212537
 kth = kth_to_last(l,3)
 print(kth.value) # 5
 kth.print() # 537
-# i think im solving the problem wihtout any temporary buffer 
