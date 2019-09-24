@@ -25,6 +25,8 @@
 #1 1 2 2 3 2 3 2 1
 #Output
 #5
+
+
 def overwatch(n, m, times):
   maxi = [0]*n
   maximum = 0
@@ -36,7 +38,12 @@ def overwatch(n, m, times):
     ith-=1
   return maximum
 
-print(overwatch(6,2,[1,2,5,2,3,4])) #9
-print(overwatch(4,2,[1,1,1,1])) #1
-print(overwatch(9,3,[1,1,2,2,3,2,3,2,1])) #5
+
+nm = list(map(int, input().split()))
+times = list(map(int, input().split()))
+overwatch(nm[0], nm[1], times)
+
+# print(overwatch(6,2,[1,2,5,2,3,4])) #9
+# print(overwatch(4,2,[1,1,1,1])) #1
+# print(overwatch(9,3,[1,1,2,2,3,2,3,2,1])) #5
 
