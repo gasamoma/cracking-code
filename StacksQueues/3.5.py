@@ -44,6 +44,17 @@ class NClassicStack:
     if self.head is None:
       return
     return self.head.print_list()
+def swap_and_pull_max(st1, st2):
+    max = st2.pop()
+    while not st2.is_empty():  # this is O(n)
+        current = st2.pop()  # this is O(1)
+        if current > max:
+            st1.push(max)  # this is O(1)
+            max = current
+        else:
+            st1.push(current)  # this is O(1)
+    return max
+
 
 def sort_stack(stack):#this is O(n*n)
     swapper = NClassicStack()
@@ -51,23 +62,9 @@ def sort_stack(stack):#this is O(n*n)
     while not stack.is_empty() or not swapper.is_empty(): #this is O(n)
         max = None
         if stack.is_empty():
-            max = swapper.pop()
-            while not swapper.is_empty(): #this is O(n)
-                current = swapper.pop() #this is O(1)
-                if current > max:
-                    stack.push(max)#this is O(1)
-                    max = current
-                else:
-                    stack.push(current) #this is O(1)
+            max = swap_and_pull_max(stack,swapper) # this is O(n)
         else:
-            max = stack.pop()
-            while not stack.is_empty(): #this is O(n)
-                current = stack.pop() #this is O(1)
-                if current > max:
-                    swapper.push(max)#this is O(1)
-                    max = current
-                else:
-                    swapper.push(current) #this is O(1)
+            max = swap_and_pull_max(swapper,stack) # this is O(n)
         result.push(max)
     return result
 
