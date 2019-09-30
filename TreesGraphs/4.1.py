@@ -4,7 +4,7 @@
 # how do I receive the 2 nodes A: as x,y coordinates from 0 to N
 # does the matrix is squared? A: Not necessarily
 # how do I interpret if a node is connected or not? A: True or false
-# can I use a queue?
+# can I use a queue? A:No
 # DFS implementation with arrays
 def find_connection(graph,n1x,n1y,n2x,n2y):# worst case scenario this is O(n*m)
     if n1x<0 or n1x>= len(graph) or n1y<0 or n1y>= len(graph[0]) or graph[n1x][n1y]==False or graph[n1x][n1y]==2:
