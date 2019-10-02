@@ -17,7 +17,7 @@ class balancedTree:
                 self.left.add(value)
         elif value > self.value:
             if self.right is None:
-                self.left=balancedTree(value)
+                self.right=balancedTree(value)
             else:
                 self.right.add(value)
     def print_dfs(self):
