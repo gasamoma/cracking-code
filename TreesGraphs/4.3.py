@@ -7,7 +7,7 @@ class LList:
     def __init__(self):
         self.value=None
         self.next=None
-    def add(self,value):
+    def add(self,value): #O(n)
         if self.next is None:
             self.next=LList()
             self.next.value=value
@@ -25,7 +25,7 @@ class BinTree:
         self.value = value
         self.left = None
         self.right = None
-    def add(self,value):
+    def add(self,value): #O(log(n)) worst case O(n)
         if value < self.value:
             if self.left is None:
                 self.left=BinTree(value)
@@ -36,20 +36,20 @@ class BinTree:
                 self.right=BinTree(value)
             else:
                 self.right.add(value)
-def dept(tree,llists,dp):
+def dept(tree,llists,dp): #O(n)
     if tree is None:
         return
     lli_len=len(llists)
     if lli_len>dp:
-        llists[dp].add(tree.value)
+        llists[dp].add(tree.value) #O(n)
     else:
         new_lli=LList()
         new_lli.value=tree.value
-        llists.append(new_lli)
-    dept(tree.left,llists,dp+1)
-    dept(tree.right,llists,dp+1)
+        llists.append(new_lli) #O(1)
+    dept(tree.left,llists,dp+1)  #O(log(n)) Worst case O(n)
+    dept(tree.right,llists,dp+1) #O(log(n)) Worst case O(n)
 
-def list_of_depths(tree):
+def list_of_depths(tree): #O(n)
     llists=[]
     dept(tree,llists,0)
     return llists
